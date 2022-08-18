@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="?"/>
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input id="name" ></br>
+        <input id="email" ></br>
+        <input id="password" ></br>
+        <button  id="add" >Adicionar</button>
+    </form>
+    <script>
+
+        var users = []
+        var id = 0
+
+        function lerUser (){
+        let botaoAdicionar = document.querySelector("#add");
+        botaoAdicionar.addEventListener("click", function(e){
+        e.preventDefault();
+        let user = {}
+        let name = document.getElementById("name")
+        let email = document.getElementById("email")
+        let password = document.getElementById("password")
+        user.id = id
+        user.name = name.value
+        user.email = email.value
+        user.password = password.value
+
+        users.push(user)
+        id++
+        console.log(users)
+       
+        //console.log("Olá eu fui clicado!");
+        });
+    }lerUser()
+        // botaoAdicionar.addEventListener("click", function(test){
+
+        // test.preventDefault();
+        // console.log("Olá eu fui clicado!");
+        // });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color:darkgray
+}
+#itens_head{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: auto;
+    padding: 12px;
+    align-items: center;
+}
+#itens_venda{
+    width: 220px;
+    display: block;
+    padding: 2px;
+}
+#itens_list{
+    font-family: 'Courier New', Courier, monospace;
+    background-color:white;
+    padding: 4%;
+    margin: 4px;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+#total_venda{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: aliceblue;
+    width: 190px;
+    padding: 9px;
+    margin: 6px;
+    border-radius:12px;
+}
+
