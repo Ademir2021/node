@@ -1,37 +1,24 @@
+"use strict"
 class User{
     constructor(){
-
-        this.id = 0
-        this.arrayUsers  = [];
+        this.id = 1
+        this.users = [];
     }
 
-    // lerDados(){
-    //    let user = {}
-    //    user.id = this.id
-    //     // var fm = document.getElementById("fm")
-    //     // user.name = String(fm.name.value)
-    //     // user.email = String(fm.email.value)
-    //     // user.password = String(fm.password.value)
-    //      user.name = document.getElementById('name').value;
-    //      user.email = document.getElementById('email').value;
-    //      user.password = document.getElementById('password').value;
-    // return user;
-    // }
+    addUser(){
+        const buttonAddUser = document.querySelector("#addUser");
+        buttonAddUser.addEventListener("click", function(e){
+        e.preventDefault() // mantem a página atualizada.
+        });
+            let user = {}
+            user.id = this.id
+            user.name = (document.getElementById('name').value)
+            user.email = (document.getElementById('email').value)
+            user.password = (document.getElementById('password').value)
+            return user
+        }
 
-    lerDados(){
-    const botaoAdicionar = document.querySelector("#add");
-    botaoAdicionar.addEventListener("click", function(e){
-    e.preventDefault()
-    });
-    let user = {}
-        user.id = this.id
-        user.name = document.getElementById('name').value;
-        user.email = document.getElementById('email').value;
-        user.password = document.getElementById('password').value;
-        return user
-    }
-
-    validaCampos(user){
+        valFields(user){
         let msg = ''
         if(user.name == ''){
             msg += '- Digite o seu nome\n';
@@ -49,33 +36,28 @@ class User{
         return true
     }
 
-    salvar(){
-        let user = this.lerDados();
-
-        if(this.validaCampos(user)){
-            this.adicionar(user);
-        }
-        localStorage.setItem('arrayUsers', JSON.stringify(this.arrayUsers));
-        console.log(this.arrayUsers)
-        var arrayUsers = JSON.stringify(this.arrayUsers)
-        const container = document.getElementById('users')
-        container.innerHTML =` ${arrayUsers}`
-    }
-
-    adicionar(user){
-        this.arrayUsers.push(user);
+    getUserAdd(user){
+        this.users.push(user);
         this.id++;
-       // localStorage.setItem('arrayUsers', JSON.stringify(user));
-        
     }
 
+    saveUser(){
+        let user = this.addUser();
+        if(this.valFields(user)){
+            this.getUserAdd(user);
+        }
+        localStorage.setItem('users', JSON.stringify(this.users));
+        //Leitura do LocalStorage
+        let users = localStorage.getItem('users', this.users);
+        let pUsers = document.getElementById('pUsers')
+        pUsers.innerHTML = `${users}`
+        console.log(users)
+     }
 }
 
-var user = new User();
+let user = new User();
 
-user.salvar()
+user.saveUser()
 
-//console.log(JSON.parse(localStorage.getItem('arrayUsers', JSON.stringify(this.arrayUsers)))) 
-// let datas = JSON.parse(data)
-// console.log(datas)
+
 
