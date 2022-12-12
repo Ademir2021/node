@@ -1,4 +1,3 @@
-"use strict"
 class User{
     constructor(){
         this.id = 1
@@ -12,12 +11,12 @@ class User{
         });
             let user = {}
             user.id = this.id
-            user.name = (document.getElementById('name').value)
-            user.email = (document.getElementById('email').value)
-            user.password = (document.getElementById('password').value)
+            user.name = document.getElementById('name').value
+            user.email = document.getElementById('email').value
+            user.password = document.getElementById('password').value
             return user
         }
-
+    
         valFields(user){
         let msg = ''
         if(user.name == ''){
@@ -46,12 +45,13 @@ class User{
         if(this.valFields(user)){
             this.getUserAdd(user);
         }
+        //Gravação no localStorage
         localStorage.setItem('users', JSON.stringify(this.users));
         //Leitura do LocalStorage
         let users = localStorage.getItem('users', this.users);
-        let pUsers = document.getElementById('pUsers')
-        pUsers.innerHTML = `${users}`
-        console.log(users)
+        document.getElementById('pUsers')
+        .innerHTML = `${users}`
+        //console.log(users)
      }
 }
 
